@@ -1,0 +1,284 @@
+body {
+	background-color: black;
+	text-align: center;
+	font-size: 1em;
+	font-family: 'Courier New', Courier, monospacespoo;
+	margin: 0;
+}
+
+.wordHeader {
+	color: white;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2.5em;
+	padding: 20px 0;
+	/* border-bottom: 1px solid #eee; */
+	margin: 0 0 30px 0;
+	color: white;
+}
+
+/* row styling including colorizing spaces based on accuracy of user's guess */
+.row {
+	color: white;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.row > div {
+	display: block;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #bbb;
+	margin: 4px;
+	text-align: center;
+	line-height: 60px;
+	text-transform: uppercase;
+	font-weight: bolder;
+	font-size: 2.5em;
+}
+
+.row > div.green {
+	--background: #13e713;
+	--border-color: #13e713;
+	animation: pivot 0.5s ease forwards;
+}
+
+.row > div.grey {
+	--background: #736b6b;
+	--border-color: #736b6b;
+	animation: pivot 0.5s ease forwards;
+}
+
+.row > div.yellow {
+	--background: #e5e562;
+	--border-color: #e5e562;
+	animation: pivot 0.5s ease forwards;
+}
+
+
+.row > div:nth-child(2) {
+	animation-delay: 0.3s;
+}
+
+.row > div:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+.row > div:nth-child(4) {
+	animation-delay: 0.9s;
+}
+
+.row > div:nth-child(5) {
+	animation-delay: 1.2s;
+}
+
+.row.current > div.filled {
+	animation: burst 0.2s ease-in-out forwards;
+}
+
+/* on-screen keyboard styling including colorizing spaces based on accuracy of user's guess */
+.keyboard {
+	max-width: 700px;
+	height: 60px;     
+	margin: 20px auto;
+}
+
+.keyboard > div {
+	width: 60px;
+	height: 50px;
+	max-width: 480px;
+	padding-top: 20px;
+	margin: 5px;
+	background: #eee;
+	display: inline-block;
+	border-radius: 6px;
+	line-height: 20px;
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+.keyboard > div.green {
+	background: #13e713;
+	color: #fff;
+	transition: all 0.3s ease-in;
+}
+
+.keyboard > div.yellow {
+	background: #e2cc68;
+	color: #fff;
+	transition: all 0.3s ease-in;
+}
+
+.keyboard > div.grey {
+	background: #736b6b;
+	color: #fff;
+	transition: all 0.3s ease-in;
+}
+
+.whirdle {
+	color: rgb(192, 219, 125);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	border: 0;
+}
+
+/* styling for the game over screen */ 
+.modal {
+	font-family: "Righteous", cursive;
+	position: fixed;
+	width: 800px;
+	height: 800px;
+	/* text-align: center;	 */
+	top: 50%;
+	left: 50%;
+	margin-top: -400px;
+	margin-left: -350px;
+}
+
+#modal-over {
+	color: blue;
+	font-size: 3rem;
+	font-weight: bolder;
+	letter-spacing: 5px;
+}
+
+h1#modal {
+	color: black;
+}
+
+.modal div {
+	max-width: 680px;
+	background: #fff;
+	color: black;
+	
+	border-radius: 10px;
+	margin-bottom: 5px;;
+}
+
+.animate__animated__animate__rotateOut {
+	color: rgb(192, 219, 125);
+	font-size: 4rem;
+	margin: 16px;
+	padding: 3px;
+	animation-name: rotate;
+	animation-duration: .2s;
+	animation-iteration-count: infinite;
+}
+
+#modal2 {
+	animation-delay: .5s;
+	color:#ff004c;
+}
+
+#modal3 {
+	animation-delay: 1s;
+	color:#3910cc;
+}
+
+#modal4 {
+	animation-delay: 1.5s;
+	color:#0a7e5f;
+}
+
+#modal5 {
+	animation-delay: 2s;
+	color:#8b8b1b;
+}
+
+#modal6 {
+	animation-delay: 2.5s;
+	color:#ca8e0fd8;
+}
+
+#modal7 {
+	animation-delay: 3s;
+	color:#1a9ded;
+}
+
+span {
+	color: blue;
+	text-transform: uppercase;
+}
+
+div.solution-line {
+	color: black;
+	font-weight: bolder;
+	font-size: 2rem;
+	padding-bottom: 1rem;
+}
+
+button.modal-button {
+	background: black;
+	color: white;
+	border: 1px solid black;
+	border-radius: 15px;
+	padding: 10px;
+	font-size: 1.5rem;
+	margin: 10px;
+	margin-bottom: 20px;
+	border: 8px solid red;
+}
+
+.modal .solution {
+	color: #ff004c;
+	font-weight: bold;
+	font-size: 2em;
+	/* text-transform: uppercase; */
+	letter-spacing: 1px;
+	margin: 0 20px 0 20px;
+}
+
+/* animating the row letters after user enters her guess */
+@keyframes pivot {
+	0% {
+		transform: rotateX(0);
+		background: black;
+		border-color: white;
+	}
+	45% {
+		transform: rotateX(90deg);
+		background: black;
+		border-color: white;
+	}
+	55% {
+		transform: rotateX(90deg);
+		background: var(--background);
+		border-color: var(--border-color);
+	}
+	100% {
+		transform: rotateX(0);
+		background: var(--background);
+		border-color: var(--border-color);
+		color: white;
+	}
+}
+
+/* animating the row spaces as letters of guess are being entered */
+@keyframes burst {
+	0% {
+		transform: scale(1);
+		border-color: #ddd;
+	}
+	50% {
+		transform: scale(1.2);
+		border: 5px solid pink;
+	}
+	100% {
+		transform: scale(1);
+		border-color: #ddd;
+	}
+}
+
+@keyframes rotate {
+  0% {
+	  transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+}
+}
