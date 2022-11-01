@@ -23,7 +23,7 @@ export default function Whirdle({ solution }) {
 				setTimeout(() => setShowModal(true), 1000)
 				window.removeEventListener('keydown', handleKeydown)
 			}
-			
+		
 			return () => {
 				window.removeEventListener('keydown', handleKeydown)
 			};
