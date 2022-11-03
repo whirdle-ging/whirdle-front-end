@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-const Pause = (delay) => {
-	// Set the initial count to 0
-	const [count, setCount] = useState(0);
-	useEffect(() => {
-		// increment the count by 1
-		const countTimer = setInterval(() => {
-			setCount(prevCount => prevCount + 1);
-			// every delay milliseconds
-		}, delay);
-		// and clear this timer when the component is unmounted
-		return function cleanup() {
-			clearInterval(countTimer);
-		};
-	});
-
+function Pause() {
+	const [hasTimeElapsed, setHasTimeElapsed] = React.useState(false);
+	useTimeout(() => {
+		setHasTimeElapsed(true);
+	}, 5000);
 	return (
-       console.log(count)
+		<p>
+			{hasTimeElapsed ? '5 seconds has passed!' : 'The timer is running…'}
+		</p>
 	);
-};
+}
 
 export default Pause;
