@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useWhirdle } from '../hooks/useWhirdle'
 import Board from './Board'
 import Keyboard from './Keyboard'
+import Pause from './Pause'
 import Modal from './Modal'
 
 export default function Whirdle({ solution }) {
@@ -35,6 +36,7 @@ export default function Whirdle({ solution }) {
 			<Board currentGuess={currentGuess} guesses={guesses} turn={turn} />
 			<div><h1>solution: {solution}</h1></div>
 			<Keyboard solution={solution} usedKeys={usedKeys} />	
+			{isCorrect && <Pause />}
 			{showModal && (<Modal isCorrect={isCorrect} turn={turn} solution={solution} />)}
 		</div>;
 }

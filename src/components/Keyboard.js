@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+
 // component will create the on-screen keyboard
 export default function Keyboard( { usedKeys, solution, isCorrect }) {
 	// const { handleKeydown } = useWhirdle(solution)
@@ -8,7 +9,7 @@ export default function Keyboard( { usedKeys, solution, isCorrect }) {
 
 	// pulls from the database and sets the letters state
 	useEffect(() => {
-		fetch('http://localhost:5000/letters')
+		fetch('https://react-whirdle-api.herokuapp.com/letters')
 			.then(res => res.json())
 			.then(res => {
 				setLetters(res.letters);

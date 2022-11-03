@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-function Pause() {
-	const [hasTimeElapsed, setHasTimeElapsed] = React.useState(false);
-	useTimeout(() => {
-		setHasTimeElapsed(true);
-	}, 5000);
+import { useTimeout } from 'usehooks-ts';
+
+export default function Pause() {
+	const [visible, setVisible] = useState(true);
+
+	const hide = () => setVisible(false);
+
+	useTimeout(hide, 5000);
+
 	return (
-		<p>
-			{hasTimeElapsed ? '5 seconds has passed!' : 'The timer is running…'}
-		</p>
+		<div>
+			<p>
+				{visible
+					? "I'm visible for 5000ms"
+					: 'You can no longer see this content'}
+			</p>
+		</div>
 	);
 }
-
-export default Pause;

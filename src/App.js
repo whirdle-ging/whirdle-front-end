@@ -8,10 +8,11 @@ export default function App() {
 	// Generate a random word from the mongodb database
 	useEffect(
 		() => {
-			fetch('http://localhost:5000/words')
+			fetch('https://react-whirdle-api.herokuapp.com/words')
 				.then(res => res.json())
 				.then(res => {
 					setSolution(res.words[Math.floor(Math.random() * res.words.length)]['word']);
+					console.log(solution)
 				})
 				.catch(err => window.alert(err));
 		},

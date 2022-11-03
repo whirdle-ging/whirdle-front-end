@@ -1,4 +1,5 @@
 import React from 'react';
+import Pause from './Pause';
 import 'animate.css';
 
  // Modal when solved whirdle - gives solution and number of turns taken
@@ -16,6 +17,7 @@ export default function Modal({ isCorrect, solution, turn }) {
 
 	return (
 	<>
+	<Pause />
 	<div className="modal">
 			if {isCorrect} && <div>
 					<h1 id="modal">YOU WON YOUR</h1>
