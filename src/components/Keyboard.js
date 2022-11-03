@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
-// import { useWhirdle } from '../hooks/useWhirdle'
 
 // component will create the on-screen keyboard
-export default function Keyboard( { usedKeys, solution }) {
+export default function Keyboard( { usedKeys, solution, isCorrect }) {
 	// const { handleKeydown } = useWhirdle(solution)
 
 	const [letters, setLetters] = useState(null)
-	// const [currentGuess, setCurrentGuess] = useState(null)
-
 
 	// pulls from the database and sets the letters state
 	useEffect(() => {
@@ -19,11 +16,11 @@ export default function Keyboard( { usedKeys, solution }) {
 			.catch(err => window.alert(err));
 	}, [setLetters]
 	)
-
 	
 	// creates and populates the game's on-screen keyboard
 	// also connects the named key with usedKeys to determine its color 
 	return (
+		<>
 		<div className="keyboard">
 			{letters &&
 				letters.map((l) => {
@@ -35,5 +32,6 @@ export default function Keyboard( { usedKeys, solution }) {
 					)
 				})}
 		</div>
+		</>
 	)
 }

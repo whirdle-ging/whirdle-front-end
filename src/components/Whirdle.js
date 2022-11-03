@@ -31,11 +31,10 @@ export default function Whirdle({ solution }) {
 		[handleKeydown, isCorrect, turn]
 	);
 
-
 	return <div>
 			<Board currentGuess={currentGuess} guesses={guesses} turn={turn} />
 			<div><h1>solution: {solution}</h1></div>
-			<Keyboard solution={solution} usedKeys={usedKeys} />
-			{showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} />}
+			<Keyboard solution={solution} usedKeys={usedKeys} />	
+			{showModal && (<Modal isCorrect={isCorrect} turn={turn} solution={solution} />)}
 		</div>;
 }
