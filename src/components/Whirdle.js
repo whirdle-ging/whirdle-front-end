@@ -33,7 +33,6 @@ export default function Whirdle({ solution }) {
 
 	return <div>
 			<Board currentGuess={currentGuess} guesses={guesses} turn={turn} />
-			<div><h1>solution: {solution}</h1></div>
 			<Keyboard solution={solution} usedKeys={usedKeys} />	
 			{showModal && (<Modal isCorrect={isCorrect} turn={turn} solution={solution} />)}
 		</div>;
