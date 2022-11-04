@@ -13,7 +13,7 @@ export const useWhirdle = solution => {
 
 	useEffect(
 		() => {
-			fetch('http://localhost:5000/words')
+			fetch('https://react-whirdle-api.herokuapp.com/words')
 				.then(response => response.json())
 				.then(data => {
 					let sol = [];
