@@ -1,9 +1,9 @@
 # Welcome to Whirdle
 
 ## Technologies used:
-Front-end: React
-Back-end: Node.js, Express, Mongoose
-Database: MongoDB
+Front-end: React  
+Back-end: Node.js, Express, Mongoose  
+Database: MongoDB  
 Styling: Flexbox, animated.css
 
 I love _[wordle]_ (https://www.nytimes.com/games/wordle/index.html). Actually, I love all word games from _Scrabble_ (and I do have the deluxe board edition) to _Words with Friends_.
