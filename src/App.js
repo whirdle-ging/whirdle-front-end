@@ -12,7 +12,6 @@ export default function App() {
 				.then(res => res.json())
 				.then(res => {
 					setSolution(res.words[Math.floor(Math.random() * res.words.length)]['word']);
-					console.log(solution)
 				})
 				.catch(err => window.alert(err));
 		},
