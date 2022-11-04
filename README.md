@@ -7,7 +7,7 @@ Back-end: Node.js, Express, Mongoose
 Database: MongoDB  
 Styling: Flexbox, animated.css
 
-I love [-wordle-](https://www.nytimes.com/games/wordle/index.html). Actually, I love all word games from _Scrabble_ (and I do have the deluxe board edition) to _Words with Friends_.
+I love [_wordle_](https://www.nytimes.com/games/wordle/index.html). Actually, I love all word games from _Scrabble_ (and I do have the deluxe board edition) to _Words with Friends_.
 
 One evening, I took a look at several of the many _Wordle_ clones out there. While some were quite good, I found that none of them had exactly what I was looking for in a complete game, [rules](https://www.wsj.com/articles/wordle-what-is-word-game-11642016202) and all. Some had the logic just plain wrong. For instance, a solution word  may have only one 'A' in it. THe guess word would have two, but neither correctly placed. The reveal word, though, would show two 'almost-A's', not one. There were also absent features I would have liked to see in an actual _Wordle_ game.
 
