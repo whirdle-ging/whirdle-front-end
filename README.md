@@ -1,4 +1,4 @@
-# Welcome to [Whirdle](https://shiny-lebkuchen-9c51e9.netlify.app/ "Play _Whirdle_ now!")
+# Welcome to [Whirdle](https://shiny-lebkuchen-9c51e9.netlify.app/ "Play Whirdle now!")
 A full stack _Wordle_ clone
 
 ## Technologies used:
