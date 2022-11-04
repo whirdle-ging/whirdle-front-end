@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# Welcome to Whirdle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies used:
+Front-end: React
+Back-end: Node.js, Express, Mongoose
+Database: MongoDB
+Styling: Flexbox, animated.css
 
-## Available Scripts
+I love _[wordle]_ (https://www.nytimes.com/games/wordle/index.html). Actually, I love all word games from _Scrabble_ (and I do have the deluxe board edition) to _Words with Friends_.
 
-In the project directory, you can run:
+One evening, I took a look at several of the many _Wordle_ clones out there. While some were quite good, I found that none of them had exactly what I was looking for in a complete game, [rules] (https://www.wsj.com/articles/wordle-what-is-word-game-11642016202) and all. Some had the logic just plain wrong. For instance, a solution word  may have only one 'A' in it. THe guess word would have two, but neither correctly placed. The reveal word, though, would show two 'almost-A's', not one. There were also features I would like to see in an actual _Wordle_ game.
 
-### `npm start`
+So rather than calling the _New York Times_ with my demands, I decided to try my hand at my own clone, which I have named _Whirdle_. Some features my version has (and don't scoff), includes:
+* No pluralized words permitted. (I read somewhere that _Wordle_ did not permit plural words, so developed the word bank based on that. I later found out that was not the case. But I am keeping that in for now.)
+* No junk words allowed. (_Wordle_ does not allow wacky non-words. Neither does _Whirdle_.)
+* If you enter an unacceptable guess word, the games will alert you and then remove your bad guess. You don't have to hit backspace five times.
+* At the game's completion, a modal appears. It will state whether you won or lost, the solution word and the number of guesses the user took.
+* The game includes the option to start a new game.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+After having gotten this far, in the near future I will add a login and collect users' stats and possibly play history.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This API is full stack, with the word bank and letters databases stored as MongoDB collections, and paving the way for when I integrate the login and start saving game stats.
