@@ -1,3 +1,5 @@
+![Wormy prefers Wormdle over Whirdle](/Users/gingaling/SOFTWARE%20DEVT%20PROJECTS/react-whirdle-api/Wormy,%20Smiling.png)
+
 # Welcome to [Whirdle](https://shiny-lebkuchen-9c51e9.netlify.app/ "Play Whirdle now!")
 A full stack _Wordle_ clone
 
