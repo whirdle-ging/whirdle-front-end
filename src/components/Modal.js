@@ -33,7 +33,7 @@ export default function Modal({ isCorrect, solution, turn }) {
 				<button className="modal-button" onClick={() => window.location.reload()}>Play Again</button>
 				</div>)} 
 
-			/* Modal when failed whirdle - gives solution, number of turns taken */
+			 {/* Modal when failed whirdle - gives solution, number of turns taken */}
 			{!isCorrect && (
 				<div>
 					<h1 id="modal-over">GAME OVER</h1>

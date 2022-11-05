@@ -31,9 +31,12 @@ export default function Whirdle({ solution }) {
 		[handleKeydown, isCorrect, turn]
 	);
 
+
+
 	return <div>
 			<Board currentGuess={currentGuess} guesses={guesses} turn={turn} />
-			<Keyboard solution={solution} usedKeys={usedKeys} />	
-			{showModal && (<Modal isCorrect={isCorrect} turn={turn} solution={solution} />)}
+			<Keyboard solution={solution} usedKeys={usedKeys} />
+			{/* {isCorrect && setInterval(() => console.log('working...'), 5000)} */}
+			{showModal && (<Modal isCorrect={isCorrect} solution={solution} turn={turn} />)}
 		</div>;
 }
