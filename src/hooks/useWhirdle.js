@@ -4,8 +4,8 @@ import Modal from '../components/Modal';
 
 export const useWhirdle = solution => {
 	const [turn, setTurn] = useState(0);
-	const [currentGuess, setCurrentGuess] = useState('');
-	const [guesses, setGuesses] = useState([...Array(6)]); // each guess is an array
+	const [guessWord, setGuessWord] = useState('');
+	const [guessedWords, setGuessedWords] = useState([...Array(6)]); // each guess is an array
 	const [history, setHistory] = useState([]); // each guess is a string
 	const [isCorrect, setIsCorrect] = useState(false);
 	const [usedKeys, setUsedKeys] = useState({}); // {a: 'grey', b: 'green', c: 'yellow'} etc-
@@ -30,7 +30,7 @@ export const useWhirdle = solution => {
 	// e.g. [{key: 'a', color: 'yellow'}]
 	const formatGuess = () => {
 		let solutionArray = [...solution];
-		let formattedGuess = [...currentGuess].map(l => {
+		let formattedGuess = [...guessWord].map(l => {
 			return { key: l, color: 'grey' };
 		});
 
@@ -55,25 +55,25 @@ export const useWhirdle = solution => {
 
 	// checks if the current guess is an allowable word (e.g. not a junk word, a plural, etc)
 	const addNewGuess = formattedGuess => {
-		if (!allWords.includes(currentGuess)) {
+		if (!allWords.includes(guessWord)) {
 			alert('That is not an acceptable Whirdle word!');
-			setCurrentGuess('');
+			setGuessWord('');
 			return;
 		}
 		// update the isCorrect state if the guess is correct
-		if (currentGuess === solution) {
+		if (guessWord === solution) {
 			setIsCorrect(true);
 			// return
 		}
-		// add the new guess to the guesses state where guesses are used to populate board
-		setGuesses(prevGuesses => {
-			let newGuesses = [...prevGuesses];
-			newGuesses[turn] = formattedGuess;
-			return newGuesses;
+		// add the new guess to the guessedWords state where guessedWords are used to populate board
+		setGuessedWords(prevGuessedWords => {
+			let newGuessedWords = [...prevGuessedWords];
+			newGuessedWords[turn] = formattedGuess;
+			return newGuessedWords;
 		});
 		// adds word to array of words used
 		setHistory(prevHistory => {
-			return [...prevHistory, currentGuess];
+			return [...prevHistory, guessWord];
 		});
 		// add one to the turn state
 		setTurn(prevTurn => {
@@ -100,45 +100,44 @@ export const useWhirdle = solution => {
 
 			return prevUsedKeys;
 		});
-		setCurrentGuess('');
+		setGuessWord('');
 	};
 
 	// keydown event - monitoring guesses already attempted, repeating a guess, guess length =  5,  & track current guess
 	// if user presses enter, add the new guess
-	const handleKeydown = ({ key }, event) => {
+	const handleKeydown = ({ key }) => {
 		if (key === 'Enter') {
-			// check to make sure user hasn't used up available gueeses; if so, game over modal appears
+			// checks to make sure user hasn't used up available gueeses; if so, game over modal appears
 			if (turn > 5) {
-				console.log('you used all your guesses!');
 				<Modal isCorrect={isCorrect} solution={solution} turn={turn} />;
 				return;
 			}
-			// check to see if word already used earlier; if so, alerts user and erases letters guessed
-			if (history.includes(currentGuess)) {
+			// checks to see if word already used earlier; if so, alerts user and erases letters guessed
+			if (history.includes(guessWord)) {
 				alert('you already tried that word.');
-				setCurrentGuess('');
+				setGuessWord('');
 				return;
 			}
-			// check to see if guess is 5 letters; if not, alerts user and erases letters guessed
-			if (currentGuess.length !== 5) {
+			// checks to see if guess is 5 letters; if not, alerts user and erases letters guessed
+			if (guessWord.length !== 5) {
 				window.alert('word must be 5 chars.');
-				setCurrentGuess('');
+				setGuessWord('');
 				return;
 			}
 			const formatted = formatGuess();
 			addNewGuess(formatted);
 		}
 		if (key === 'Backspace') {
-			setCurrentGuess(prev => prev.slice(0, -1));
+			setGuessWord(prev => prev.slice(0, -1));
 			return;
 		}
 		if (/^[A-Za-z]$/.test(key)) {
-			if (currentGuess.length < 5) {
-				setCurrentGuess(prev => prev + key);
+			if (guessWord.length < 5) {
+				setGuessWord(prev => prev + key);
 			}
 		}
 	};
-	return { turn, currentGuess, guesses, isCorrect, usedKeys, handleKeydown };
+	return { turn, guessWord, guessedWords, isCorrect, usedKeys, handleKeydown };
 };
 
 export default useWhirdle;

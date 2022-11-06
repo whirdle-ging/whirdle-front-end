@@ -3,12 +3,12 @@ import React from 'react';
 // components
 import Row from './Row';
 
-export default function Board({ guesses, currentGuess, turn }) {
+export default function Board({ guessedWords, guessWord, turn }) {
 	return (
 		<div>
-			{guesses.map((g, i) => {
+			{guessedWords.map((g, i) => {
 				if (turn === i) {
-					return <Row key={i} currentGuess={currentGuess} />;
+					return <Row key={i} guessWord={guessWord} />;
 				}
 				return <Row key={i} guess={g} />;
 			})}

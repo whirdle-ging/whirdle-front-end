@@ -6,9 +6,9 @@ import Modal from './Modal'
 
 export default function Whirdle({ solution }) {
 	const {
-		currentGuess,
+		guessWord,
 		handleKeydown,
-		guesses,
+		guessedWords,
 		isCorrect,
 		turn,
 		usedKeys
@@ -18,12 +18,10 @@ export default function Whirdle({ solution }) {
 	useEffect( 
 		() => {
 			window.addEventListener('keydown', handleKeydown)
-			// window.addEventListener('event' , () => {console.log('hello')});
 			if (isCorrect || turn > 5) {
-				setTimeout(() => setShowModal(true), 1000)
+				setTimeout(() => setShowModal(true), 1750)
 				window.removeEventListener('keydown', handleKeydown)
 			}
-		
 			return () => {
 				window.removeEventListener('keydown', handleKeydown)
 			};
@@ -31,12 +29,9 @@ export default function Whirdle({ solution }) {
 		[handleKeydown, isCorrect, turn]
 	);
 
-
-
 	return <div>
-			<Board currentGuess={currentGuess} guesses={guesses} turn={turn} />
+			<Board guessWord={guessWord} guessedWords={guessedWords} turn={turn} />
 			<Keyboard solution={solution} usedKeys={usedKeys} />
-			{/* {isCorrect && setInterval(() => console.log('working...'), 5000)} */}
 			{showModal && (<Modal isCorrect={isCorrect} solution={solution} turn={turn} />)}
-		</div>;
+		</div>
 }
