@@ -1,4 +1,4 @@
-<center>![Wormy prefers Wormdle over Whirdle](https://i.imgur.com/0rHxMmbm.png "Wormy prefers Wormdle over Whirdle")***"Wormdle?"***<center>
+![Wormy prefers Wormdle over Whirdle](https://i.imgur.com/0rHxMmbm.png "Wormy prefers Wormdle over Whirdle")***"Wormdle?"***
 
 # Welcome to [Whirdle](https://shiny-lebkuchen-9c51e9.netlify.app/ "Play Whirdle now!")
 A full stack _Wordle_ clone
